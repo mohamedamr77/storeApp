@@ -1,14 +1,8 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:storeamr/helper/api.dart';
 
 class AllCategoryService{
   Future<List<dynamic>> getAllCategories()async{
-       http.Response response =await http.get(Uri.parse("https://fakestoreapi.com/products/categories"));
-       if(response.statusCode==200){
-         List<dynamic> result =jsonDecode(response.body);
+    List<dynamic> result=await Api().get( url: 'https://fakestoreapi.com/products/categories');
          return result;
-       } else{
-         throw Exception("Failed to fetch data and status: ${response.statusCode}");
-       }
   }
 }
