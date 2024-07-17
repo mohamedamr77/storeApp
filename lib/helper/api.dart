@@ -13,6 +13,7 @@ class Api{
    Future<dynamic> post({required String url,@required dynamic body,@required String? token}) async{
 
      Map<String, String> headers= {};
+
      if(token!=null){
        headers.addAll({
          "Authorization": "Bearer $token",
@@ -24,10 +25,15 @@ class Api{
          headers: headers,
      );
 
-     Map<String,dynamic> data=jsonDecode(response.body);
-     return data;
+     if(response.statusCode==200){
+       Map<String,dynamic> data=jsonDecode(response.body);
+       return data;
+     } else {
+       throw Exception('Failed to load data status code: ${response.statusCode}');
+     }
      if (kDebugMode) {
        print(response.body);
      }
    }
+
 }
