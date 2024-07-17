@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'features/home_screen/views/screen.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget{
   const MyApp({super.key});

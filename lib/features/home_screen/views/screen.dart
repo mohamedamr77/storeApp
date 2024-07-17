@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text("New Trend",
+        title: const Text("New Trend",
 
         style: TextStyle(
           color: Colors.black,
@@ -22,14 +22,14 @@ class HomeScreen extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: (){},
-          color: Colors.black, icon: Icon(Icons.arrow_back_ios_new,),
+          color: Colors.black, icon: const Icon(Icons.arrow_back_ios_new,),
         ),
         actions: [
-          IconButton(onPressed: (){}, icon:  FaIcon(FontAwesomeIcons.cartPlus),)
+          IconButton(onPressed: (){}, icon:  const FaIcon(FontAwesomeIcons.cartPlus),)
 
         ],
       ),
-      body: HomeScreenBody(),
+      body: const HomeScreenBody(),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,8 +8,8 @@ class ItemProduct extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
    return  Container(
-     padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
-     margin: EdgeInsets.all(8),
+     padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+     margin: const EdgeInsets.all(8),
      width: MediaQuery.of(context).size.width*0.45,
      height: MediaQuery.of(context).size.height*0.27,
      decoration: BoxDecoration(
@@ -19,7 +18,7 @@ class ItemProduct extends StatelessWidget{
            color: Colors.grey.withOpacity(0.3),
            spreadRadius: 5,
            blurRadius: 7,
-           offset: Offset(0, 3), // changes position of shadow
+           offset: const Offset(0, 3), // changes position of shadow
          ),
        ],
        color: Colors.white,
@@ -35,7 +34,7 @@ class ItemProduct extends StatelessWidget{
            width: MediaQuery.of(context).size.width * 0.44,
            height: MediaQuery.of(context).size.height * 0.15,
          ),
-         SizedBox(height: 6,),
+         const SizedBox(height: 6,),
          Text("T-Shirt",
            maxLines: 1,
            overflow: TextOverflow.ellipsis,
@@ -44,15 +43,15 @@ class ItemProduct extends StatelessWidget{
              fontSize: 18,
            ),
          ),
-         SizedBox(height: 6,),
+         const SizedBox(height: 6,),
          Row(
            children: [
-             Expanded(child: Text("\$225")),
+             const Expanded(child: Text("\$225")),
              GestureDetector(
                  onTap: (){
 
                  },
-                 child: FaIcon(FontAwesomeIcons.heart,))
+                 child: const FaIcon(FontAwesomeIcons.heart,))
            ],
          )
        ],
