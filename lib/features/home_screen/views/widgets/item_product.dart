@@ -3,8 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: use_key_in_widget_constructors
 class ItemProduct extends StatelessWidget{
-  const ItemProduct({super.key});
-
+  const ItemProduct({super.key, required this.name, required this.price, required this.image});
+ final String name;
+ final num price;
+ final String image;
   @override
   Widget build(BuildContext context) {
    return  Container(
@@ -30,23 +32,23 @@ class ItemProduct extends StatelessWidget{
        crossAxisAlignment: CrossAxisAlignment.start,
        children: [
          Image.network(
-           "https://i.pravatar.cc",
+           image,
            width: MediaQuery.of(context).size.width * 0.44,
            height: MediaQuery.of(context).size.height * 0.15,
          ),
          const SizedBox(height: 6,),
-         Text("T-Shirt",
+         Text(name,
            maxLines: 1,
            overflow: TextOverflow.ellipsis,
            style: TextStyle(
              color: Colors.grey[700],
-             fontSize: 18,
+             fontSize: 14,
            ),
          ),
          const SizedBox(height: 6,),
          Row(
            children: [
-             const Expanded(child: Text("\$225")),
+              Expanded(child: Text("\$$price")),
              GestureDetector(
                  onTap: (){
 

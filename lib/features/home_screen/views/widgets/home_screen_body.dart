@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:storeamr/models/product_model.dart';
 import 'package:storeamr/service/get_all_product_service.dart';
-
 import 'item_product.dart';
 
 class HomeScreenBody extends StatelessWidget {
@@ -12,6 +11,7 @@ class HomeScreenBody extends StatelessWidget {
     return FutureBuilder <List<ProductModel>>(
         future: AllProductService().getAllProducts(), builder: (context, snapshot) {
           if(snapshot.hasData){
+            List<ProductModel> products = snapshot.data!;
             return GridView.builder(
               clipBehavior: Clip.none,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -21,15 +21,15 @@ class HomeScreenBody extends StatelessWidget {
                 crossAxisSpacing: 16.0,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return  const ItemProduct();
+                return   ItemProduct(name: products[index].title.substring(0,6), price:  products[index].price, image:  products[index].image,);
               },
-              itemCount: 20,
+              itemCount: products.length,
             );
           }else{
             return SizedBox(
               height: MediaQuery.of(context).size.height / 1.3,
-              child: Center(
-                child: Text("${snapshot.error}")
+              child: const Center(
+                child: CircularProgressIndicator()
               ),
             );
           }
