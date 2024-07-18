@@ -5,7 +5,7 @@ class ProductModel {
   final String image;
   final String description;
   final String category;
-  final RatingModel rating;
+  final RatingModel? rating;
   ProductModel( {
     required this.id,
     required this.title,
@@ -18,9 +18,9 @@ class ProductModel {
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
     id: json['id'],
     title: json['title'],
-    price: json['price'],
+    price: json['price'] is num ? json['price'] : num.tryParse(json['price']),
     image: json['image'],
-    rating: RatingModel.fromJson(json['rating']),
+    rating: json['rating'] != null ? RatingModel.fromJson(json['rating']) : null,
     description: json["description"],
     category: json["category"],
   );
