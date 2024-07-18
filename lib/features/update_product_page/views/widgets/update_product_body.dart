@@ -39,7 +39,14 @@ class UpdateProductBody extends StatelessWidget {
                          backgroundColor: Colors.orange
                        ),
                          onPressed: (){
-                         // UpdateProductService().updateProduct(title:  productName!, description: description!, category: , image: image!, price: price!);
+                          UpdateProductService().updateProduct(
+                              title:  productName!,
+                              description: description!,
+                              category: "sad" ,
+                              image: image!,
+                              price: price!
+                          );
+                          print(product.category);
                          }, child: const Text("Update",
                        style: TextStyle(
                          color: Colors.white
