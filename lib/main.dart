@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:storeamr/features/update_product_page/views/screen.dart';
 
 import 'features/home_screen/views/screen.dart';
 
@@ -10,8 +11,12 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home:  HomeScreen(),
+    return  MaterialApp(
+      routes: {
+        HomeScreen.id: (context)=>HomeScreen(),
+        UpdateProductScreen.id:(context) =>UpdateProductScreen()
+      },
+      initialRoute:  HomeScreen.id,
       debugShowCheckedModeBanner: false,
     );
   }

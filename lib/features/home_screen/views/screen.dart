@@ -3,8 +3,8 @@ import 'package:storeamr/features/home_screen/views/widgets/appbar.dart';
 import 'package:storeamr/features/home_screen/views/widgets/home_screen_body.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
+  HomeScreen({super.key});
+ static String id = "home screen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

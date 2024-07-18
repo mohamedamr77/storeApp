@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:storeamr/models/product_model.dart';
+import 'package:storeamr/service/update_product.dart';
 
 import 'custom_text_form_field.dart';
 
 class UpdateProductBody extends StatelessWidget {
-   UpdateProductBody({super.key});
+   UpdateProductBody({super.key, required this.product});
     String? productName,description,image;
-    int? price;
+    String? price;
+     final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -22,7 +25,7 @@ class UpdateProductBody extends StatelessWidget {
                      keyboardType: TextInputType.number,
                      hintText: 'Price',
                      onChanged: (String data) {
-                     price=int.parse(data);
+                     price=data;
                    },),
                    CustomField( hintText: 'image', onChanged: (String data) {
                      image=data;
@@ -35,7 +38,9 @@ class UpdateProductBody extends StatelessWidget {
                        style: ElevatedButton.styleFrom(
                          backgroundColor: Colors.orange
                        ),
-                         onPressed: (){}, child: const Text("Update",
+                         onPressed: (){
+                         // UpdateProductService().updateProduct(title:  productName!, description: description!, category: , image: image!, price: price!);
+                         }, child: const Text("Update",
                        style: TextStyle(
                          color: Colors.white
                        ),

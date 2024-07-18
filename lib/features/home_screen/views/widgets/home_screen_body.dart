@@ -21,7 +21,7 @@ class HomeScreenBody extends StatelessWidget {
                 crossAxisSpacing: 16.0,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return   ItemProduct(name: products[index].title.substring(0,6), price:  products[index].price, image:  products[index].image,);
+                return   ItemProduct(productModel: products[index],);
               },
               itemCount: products.length,
             );

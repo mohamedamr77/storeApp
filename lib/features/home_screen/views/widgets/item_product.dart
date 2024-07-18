@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:storeamr/features/update_product_page/views/screen.dart';
+import 'package:storeamr/models/product_model.dart';
 
 // ignore: use_key_in_widget_constructors
 class ItemProduct extends StatelessWidget{
-  const ItemProduct({super.key, required this.name, required this.price, required this.image});
- final String name;
- final num price;
- final String image;
+  const ItemProduct({super.key, required this.productModel,});
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
    return  GestureDetector(
      onTap: (){
-       Navigator.push(context, MaterialPageRoute(builder: (context) => const UpdateProductScreen(),));
+       Navigator.pushNamed(context, UpdateProductScreen.id, arguments: productModel);
      },
      child: Container(
        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
@@ -37,12 +36,12 @@ class ItemProduct extends StatelessWidget{
          crossAxisAlignment: CrossAxisAlignment.start,
          children: [
            Image.network(
-             image,
+              productModel.image,
              width: MediaQuery.of(context).size.width * 0.44,
              height: MediaQuery.of(context).size.height * 0.15,
            ),
            const SizedBox(height: 6,),
-           Text(name,
+           Text(productModel.title,
              maxLines: 1,
              overflow: TextOverflow.ellipsis,
              style: TextStyle(
@@ -53,7 +52,7 @@ class ItemProduct extends StatelessWidget{
            const SizedBox(height: 6,),
            Row(
              children: [
-                Expanded(child: Text("\$$price")),
+                Expanded(child: Text("\$${productModel.price}")),
                GestureDetector(
                    onTap: (){
 
